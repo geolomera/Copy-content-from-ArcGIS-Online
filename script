@@ -1,0 +1,9 @@
+#Basado en https://support.esri.com/es/technical-article/000022252
+from arcgis.gis import GIS
+#Para ArcGIS Online
+gis2=GIS("https://arcgis.com", "username", "password")
+gis1=GIS("https://arcgis.com", "username2", "password2")
+itemid = '282f799060694ae38ce3f269a7de4076'
+#insertar id de elemento
+items = gis2.content.get(itemid)
+gis1.content.clone_items([items], copy_data=False, search_existing_items=True)
